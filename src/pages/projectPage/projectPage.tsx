@@ -1,0 +1,40 @@
+import {useParams} from "react-router";
+
+import style from './projectPage.module.css'
+import mainStyle from './../../styles/mainStyles.module.css'
+
+import {BtnGitHub} from "@/common/components/btnGitHub/BtnGitHub.tsx";
+import {projectsList} from "@/common/dataArrays/projectsList.ts";
+
+
+export const ProjectPage = () => {
+    const {id} = useParams();
+    const project = projectsList.find(el => el.id === +id!)
+
+    return (
+        <main className={mainStyle.section}>
+            <div className={mainStyle.container}>
+                <div className={style.project_details}>
+                    <h1 className={mainStyle.title_1}>{project!.title}</h1>
+                    <a className={style.project_details__link} href={project!.gitHubPagesLink} target='_blank' rel='noreferrer'>
+                        <img src={project!.imgBig} alt={project!.title} className={style.project_details__linkCover}/>
+                    </a>
+
+
+
+                        <div className={style.project_details__desc}>
+                            <p>{project!.skills}</p>
+                        </div>
+
+                    {project!.gitHubRepoLink && (
+                        <BtnGitHub link={project!.gitHubRepoLink}/>
+                    )}
+
+
+                </div>
+
+
+            </div>
+        </main>
+    )
+}
