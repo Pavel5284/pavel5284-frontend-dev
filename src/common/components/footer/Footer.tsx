@@ -1,5 +1,5 @@
 import style from './Footer.module.css'
-import commonStyles from '../../styles/mainStyles.module.css'
+import commonStyles from '@/styles/mainStyles.module.css'
 import {GitHubSvgComponent} from "../iconsComponents/GitHubSvgComponent/GitHubSvgComponent";
 import {LinkedinSvgComponent} from "../iconsComponents/LinkedinSvgComponent/LinkedinSvgComponent";
 import {TelegramSvgComponent} from "../iconsComponents/TelegramSvgComponent/TelegramSvgComponent";

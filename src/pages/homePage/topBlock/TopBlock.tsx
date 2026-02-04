@@ -16,6 +16,8 @@ export const TopBlock = () => {
                     </h1>
                     <div className={style.text}>
                         <p>{t('mainPage.details')}</p>
+                        <p>{t('mainPage.stack')}</p>
+                        <p>React • TypeScript • Next.js</p>
                         <p>{t('mainPage.cta')}</p>
                     </div>
                     <a className={style.btn}

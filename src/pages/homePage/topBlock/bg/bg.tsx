@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocalStorage } from "@/common/utils/useLocalStorage.ts";
-import { detectDarkMode } from "@/common/utils/detectDarkMode.ts";
+import {useTheme} from "@/common/utils/cookies/useTheme.ts";
 
 interface VantaBackgroundProps {
     children: React.ReactNode;
@@ -16,11 +15,11 @@ export const VantaBackground: React.FC<VantaBackgroundProps> = ({
     const [vantaEffect, setVantaEffect] = useState<any>(null);
     const vantaRef = useRef<HTMLDivElement>(null);
     const [isClient, setIsClient] = useState(false);
-    const [darkMode] = useLocalStorage('darkMode', detectDarkMode());
+    const [theme] = useTheme();
 
 
-    console.log('🎨 Current darkMode value:', darkMode);
-    console.log('🎨 backgroundAlpha will be:', darkMode === 'dark' ? 1 : 0);
+    console.log('🎨 Current darkMode value:', theme);
+    console.log('🎨 backgroundAlpha will be:', theme === 'dark' ? 1 : 0);
 
     useEffect(() => {
         setIsClient(true);
@@ -83,8 +82,8 @@ export const VantaBackground: React.FC<VantaBackgroundProps> = ({
                     scale: 1.0,
                     scaleMobile: 1.0,
                     color: 0x88ff00,
-                    backgroundColor: 0x202428,
-                    backgroundAlpha: darkMode === 'dark' ? 1 : 0
+                    backgroundColor: 0x252526,
+                    backgroundAlpha: theme === 'dark' ? 1 : 0
                 });
 
                 setVantaEffect(effectInstance);
@@ -104,15 +103,15 @@ export const VantaBackground: React.FC<VantaBackgroundProps> = ({
 
     // Отдельный эффект для обновления backgroundAlpha
     useEffect(() => {
-        console.log('🔄 darkMode changed to:', darkMode);
+        console.log('🔄 darkMode changed to:', theme);
         console.log('🔄 vantaEffect exists:', !!vantaEffect);
         console.log('🔄 setOptions exists:', vantaEffect && typeof vantaEffect.setOptions === "function");
         if (vantaEffect && typeof vantaEffect.setOptions === "function") {
             vantaEffect.setOptions({
-                backgroundAlpha: darkMode === 'dark' ? 1 : 0
+                backgroundAlpha: theme === 'dark' ? 1 : 0
             });
         }
-    }, [darkMode, vantaEffect]);
+    }, [theme, vantaEffect]);
 
     if (!isClient) {
         return (

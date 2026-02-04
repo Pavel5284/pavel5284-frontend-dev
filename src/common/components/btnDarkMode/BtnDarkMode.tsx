@@ -3,32 +3,30 @@ import mainStyle from '@/styles/mainStyles.module.css'
 import sun from "@/assets/img/icons/sun.svg";
 import moon from "@/assets/img/icons/moon.svg";
 import {useEffect} from "react";
-import {useLocalStorage} from "@/common/utils/useLocalStorage";
-import { detectDarkMode } from "@/common/utils/detectDarkMode";
+import { useTheme } from "@/common/utils/cookies/useTheme";
 
 export const BtnDarMode = () => {
-       const [darkMode, setDarkMode] = useLocalStorage('darkMode', detectDarkMode())
-
+    const [theme, setTheme] = useTheme();
     useEffect(() => {
-        if (darkMode === 'dark') {
+        if (theme === 'dark') {
             document.body.classList.add(`${mainStyle.dark}`)
         } else {
             document.body.classList.remove(`${mainStyle.dark}`)
         }
-    }, [darkMode])
+    }, [theme])
 
     useEffect(() => {
         window
             .matchMedia('(prefers-color-scheme: dark)')
             .addEventListener('change', (event) => {
                 const newColorScheme = event.matches ? 'dark' : 'light';
-                setDarkMode(newColorScheme)
+                setTheme(newColorScheme)
             })
-    }, [setDarkMode])
+    }, [setTheme])
 
 
     const toggleDarkMode = () => {
-        setDarkMode((currentValue: string) => {
+        setTheme((currentValue: string) => {
             return currentValue === 'light' ? 'dark' : 'light'
         })
     }
@@ -37,7 +35,7 @@ export const BtnDarMode = () => {
     const btnActive = (`${style.dark_mode_btn} ${style.dark_mode_btn__active}`)
 
     return (
-        <button className={darkMode === 'dark' ? btnActive : btnNormal} onClick={toggleDarkMode}>
+        <button className={theme === 'dark' ? btnActive : btnNormal} onClick={toggleDarkMode}>
             <img src={sun} alt="Light mode" className={style.dark_mode_btn__icon}/>
             <img src={moon} alt="Dark mode" className={style.dark_mode_btn__icon}/>
         </button>

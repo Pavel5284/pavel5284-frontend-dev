@@ -1,8 +1,14 @@
 .app {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота на весь экран */
+    width: 100vw;
 }
+
+.content {
+    flex: 1; /* Занимает всё доступное пространство */
+}
+
 .circularProgressContainer {
     position: fixed;
     top: 30%;
