@@ -5,8 +5,11 @@ import {useState} from "react";
 import {AxiosError} from "axios";
 import {formAPI} from "@/api/api.ts";
 import CustomizedSnackbar from "@/common/components/CustomizedSnackbar/CustomizedSnackbar.tsx";
+import {MainButton} from "@/common/components/mainButton/MainButton.tsx";
+import {useTranslation} from "react-i18next";
 
 export const ContactsForm = () => {
+    const {t} = useTranslation();
     const [status, setStatus] = useState(false)
     const [isSend, setIsSend] = useState(false)
     const [networkError, setNetworkError] = useState<null | string>(null)
@@ -58,59 +61,69 @@ export const ContactsForm = () => {
     });
     return (
         <form className={style.contact__form} onSubmit={formik.handleSubmit}>
-            <p className={style.contact__form_title}>Send Me Message</p>
+            <p className={style.contact__form_title}>{t('contacts.sendMessage')}</p>
             <div className={style.contact__form_box}>
-                <input className={style.contact__form_input}
-                       id="name"
-                       name="name"
-                       type="text"
-                       placeholder='Name'
-                       onChange={formik.handleChange}
-                       value={formik.values.name}
-                />
-                {formik.touched.name && formik.errors.name ? (
-                    <div>{formik.errors.name}</div>
-                ) : null}
+                <div className={style.input__wrapper}>
+                    <input className={style.contact__form_input}
+                           id="name"
+                           name="name"
+                           type="text"
+                           placeholder={t('contacts.form.name')}
+                           onChange={formik.handleChange}
+                           value={formik.values.name}
+                    />
+                    {formik.touched.name && formik.errors.name ? (
+                        <div>{formik.errors.name}</div>
+                    ) : null}
+                </div>
 
-                <input className={style.contact__form_input}
-                       id="email"
-                       name="email"
-                       type="email"
-                       placeholder='Email'
-                       onChange={formik.handleChange}
-                       value={formik.values.email}
-                />
-                {formik.touched.email && formik.errors.email ? (
-                    <div>{formik.errors.email}</div>
-                ) : null}
+                <div className={style.input__wrapper}>
+                    <input className={style.contact__form_input}
+                           id="email"
+                           name="email"
+                           type="email"
+                           placeholder={t('contacts.form.email')}
+                           onChange={formik.handleChange}
+                           value={formik.values.email}
+                    />
+                    {formik.touched.email && formik.errors.email ? (
+                        <div>{formik.errors.email}</div>
+                    ) : null}
+                </div>
             </div>
 
-
-            <input className={style.contact__form_input}
-                   id="subject"
-                   name="subject"
-                   type="text"
-                   placeholder='Subject'
-                   onChange={formik.handleChange}
-                   value={formik.values.subject}
-            />
-
+            <div className={style.input__wrapper}>
+                <input className={style.contact__form_input}
+                       id="subject"
+                       name="subject"
+                       type="text"
+                       placeholder={t('contacts.form.subject')}
+                       onChange={formik.handleChange}
+                       value={formik.values.subject}
+                />
+            </div>
+            <div className={style.input__wrapper}>
             <textarea className={style.contact__form_textarea}
                       id="message"
                       name="message"
-                      placeholder='Message'
+                      placeholder={t('contacts.form.message')}
                       onChange={formik.handleChange}
                       value={formik.values.message}
             />
-            {formik.touched.message && formik.errors.message ? (
-                <div>{formik.errors.message}</div>
-            ) : null}
+                {formik.touched.message && formik.errors.message ? (
+                    <div style={{marginBottom: "20px"}}>{formik.errors.message}</div>
+                ) : null}
+            </div>
 
-            <button
+            <MainButton disabled={status} onClick={formik.handleSubmit}>
+                {t('contacts.form.submit')}
+            </MainButton>
+            {/*<button
                 disabled={status}
                 className={style.btn} type="submit">Send Message
-            </button>
-            <CustomizedSnackbar networkError={networkError} setNetworkError={setNetworkError} isSend={isSend} setIsSend={setIsSend}/>
+            </button>*/}
+            <CustomizedSnackbar networkError={networkError} setNetworkError={setNetworkError} isSend={isSend}
+                                setIsSend={setIsSend}/>
         </form>
 
 

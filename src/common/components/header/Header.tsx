@@ -1,4 +1,4 @@
-import style from './Navbar.module.css'
+import style from './Header.module.css'
 import mainStyle from '@/styles/mainStyles.module.css'
 import {NavLink} from "react-router";
 import {BtnDarMode} from "../btnDarkMode/BtnDarkMode";
@@ -6,7 +6,7 @@ import {LanguageSwitcher} from "../languageSwitcher/LanguageSwitcher";
 import logo from "@/assets/img/logo.png";
 import { useTranslation } from "react-i18next";
 
-export const Navbar = () => {
+export const Header = () => {
     const {t} = useTranslation();
 
     const activeLink = `${style.nav_list__link} ${style.nav_list__link__active}`
@@ -26,7 +26,7 @@ export const Navbar = () => {
                             <NavLink to={'/'} className={({isActive}) => {
                                 return isActive ? activeLink : normalLink
                             }}>
-                                {t('navbar.home')}
+                                {t('header.home')}
                             </NavLink>
                         </li>
 
@@ -35,7 +35,7 @@ export const Navbar = () => {
 
                                 return isActive ? activeLink : normalLink
                             }}>
-                                {t('navbar.projects')}
+                                {t('header.projects')}
                             </NavLink>
                         </li>
 
@@ -43,7 +43,7 @@ export const Navbar = () => {
                             <NavLink to={'/contactsPage'} className={({isActive}) => {
                                 return isActive ? activeLink : normalLink
                             }}>
-                                {t('navbar.contacts')}
+                                {t('header.contacts')}
                             </NavLink>
                         </li>
                     </ul>

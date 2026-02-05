@@ -47,6 +47,13 @@
     justify-content: space-between;
     gap: 30px;
 }
+.input__wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
 .contact__form_input{
     display: block;
     width: 100%;
@@ -55,7 +62,7 @@
     border: 1px solid var(--accent);
     border-radius: 30px;
     padding: 0 24px;
-    margin-bottom: 30px;
+   /* margin-bottom: 30px;*/
 }
 .contact__form_textarea{
     width: 100%;

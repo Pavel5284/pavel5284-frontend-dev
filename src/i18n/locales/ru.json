@@ -1,5 +1,5 @@
 {
-  "navbar": {
+  "header": {
     "home": "Главная",
     "projects": "Проекты",
     "contacts": "Контакты"
@@ -14,5 +14,41 @@
     "downloadResume": "Скачать резюме",
     "skillsTitle": "Навыки",
     "frontendLabel": "Фронтенд"
+  },
+  "projects": {
+    "h1": "Проекты",
+    "h3": "Здесь собраны проекты в открытом доступе которые не под NDA",
+    "back": "Назад",
+    "quizShow": {
+      "title": "Квиз-шоу",
+      "skills": "React, TS, Redux, Formik, Axios, MaterialUI, SCSS"
+    },
+    "taskManager": {
+      "title": "Менеджер задач",
+      "skills": "React, Redux, TS, Formik, Axios, Storybook, TDD, RTK, MUI"
+    },
+    "socialNetwork": {
+      "title": "Социальная сеть",
+      "skills": "React, Redux, TS, Formik, Axios, WebSocket, Ant Design"
+    },
+    "marketingAgency": {
+      "title": "Сайт маркетингового агентства",
+      "skills": "Next.js, RTK-query, TS, React-Hook form, MUI, Vanta.js, ZOD, Nodemailer"
+    }
+  },
+  "contacts": {
+    "title": "Контакты",
+    "location": "Локация",
+    "locationValue": "Калининград, Россия",
+    "telegram": "Telegram",
+    "email": "Email",
+    "sendMessage": "Написать мне",
+    "form": {
+      "name": "Имя",
+      "email": "Email",
+      "subject": "Тема",
+      "message": "Сообщение",
+      "submit": "Отправить сообщение"
+    }
   }
 }

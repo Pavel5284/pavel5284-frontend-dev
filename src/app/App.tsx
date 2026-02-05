@@ -1,14 +1,16 @@
 import style from "./App.module.css"
 import {Routing} from "@/common/routing/Routing.tsx"
-import {Navbar} from "@/common/components/navbar/Navbar.tsx";
+import {Header} from "@/common/components/header/Header.tsx";
 import {Footer} from "@/common/components/footer/Footer.tsx";
+import {ScrollToTop} from "@/common/utils/scrollToTop.ts";
 
 export const App = () => {
 
 
     return (
         <div className={style.app}>
-            <Navbar/>
+            <ScrollToTop/>
+            <Header/>
             <main className={style.content}>
                 <Routing/>
             </main>

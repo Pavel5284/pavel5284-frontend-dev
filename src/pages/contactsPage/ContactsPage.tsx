@@ -1,24 +1,26 @@
 import mainStyle from '@/styles/mainStyles.module.css'
 import style from './ContactsPage.module.css'
 import {ContactsForm} from "./ContactPageForm";
+import {useTranslation} from "react-i18next";
 
 export const ContactsPage = () => {
+    const {t} = useTranslation();
     return (
         <main className={mainStyle.section}>
             <div className={mainStyle.container}>
-                <h1 className={mainStyle.title_1}>Contacts</h1>
+                <h1 className={mainStyle.title_1}>{t('contacts.title')}</h1>
                 <div  className={style.contacts__box}>
                     <ul className={style.content_list}>
                         <li className={style.content_list__item}>
-                            <h2 className={mainStyle.title_2}>Location</h2>
-                            <p>Kaliningrad, Russia</p>
+                            <h2 className={mainStyle.title_2}>{t('contacts.location')}</h2>
+                            <p>{t('contacts.locationValue')}</p>
                         </li>
                         <li className={style.content_list__item}>
-                            <h2 className={mainStyle.title_2}>Telegram</h2>
+                            <h2 className={mainStyle.title_2}>{t('contacts.telegram')}</h2>
                             <p><a href="https://t.me/Pavel5284">Pavel5284</a></p>
                         </li>
                         <li className={style.content_list__item}>
-                            <h2 className={mainStyle.title_2}>Email</h2>
+                            <h2 className={mainStyle.title_2}>{t('contacts.email')}</h2>
                             <p><a href="mailto:pavel528418@gmail.com">pavel528418@gmail.com</a></p>
                         </li>
                     </ul>

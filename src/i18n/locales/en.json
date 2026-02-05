@@ -1,5 +1,5 @@
 {
-  "navbar": {
+  "header": {
     "home": "Home",
     "projects": "Projects",
     "contacts": "Contacts"
@@ -14,5 +14,41 @@
     "downloadResume": "Download CV",
     "skillsTitle": "Skills",
     "frontendLabel": "Frontend"
+  },
+  "projects": {
+    "h1": "Projects",
+    "h3": "Publicly available projects not covered by NDA",
+    "back": "Back",
+    "quizShow": {
+      "title": "Quiz-show",
+      "skills": "React, TS, Redux, Formik, Axios, MaterialUI, SCSS"
+    },
+    "taskManager": {
+      "title": "Task Manager Desk",
+      "skills": "React, Redux, TS, Formik, Axios, Storybook, TDD, RTK, MUI"
+    },
+    "socialNetwork": {
+      "title": "Social Network",
+      "skills": "React, Redux, TS, Formik, Axios, WebSocket, Ant Design"
+    },
+    "marketingAgency": {
+      "title": "Marketing agency site",
+      "skills": "Next.js, RTK-query, TS, React-Hook form, MUI, Vanta.js, ZOD, Nodemailer"
+    }
+  },
+  "contacts": {
+    "title": "Contacts",
+    "location": "Location",
+    "locationValue": "Kaliningrad, Russia",
+    "telegram": "Telegram",
+    "email": "Email",
+    "sendMessage": "Send Me Message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message"
+    }
   }
 }
