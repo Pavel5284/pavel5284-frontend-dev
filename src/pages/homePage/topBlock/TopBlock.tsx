@@ -1,5 +1,5 @@
 import style from './TopBlock.module.css'
-import cv from '../../../assets/cv/Cherniakov_Pavel_Frontend_dev.pdf'
+import cv from '../../../../public/cv/Cherniakov_Pavel_Frontend_dev.pdf'
 import {VantaBackground} from "./bg/bg";
 import {useTranslation} from "react-i18next";
 
