@@ -18,9 +18,6 @@ export const VantaBackground: React.FC<VantaBackgroundProps> = ({
     const [theme] = useTheme();
 
 
-    console.log('🎨 Current darkMode value:', theme);
-    console.log('🎨 backgroundAlpha will be:', theme === 'dark' ? 1 : 0);
-
     useEffect(() => {
         setIsClient(true);
     }, []);
@@ -103,9 +100,6 @@ export const VantaBackground: React.FC<VantaBackgroundProps> = ({
 
     // Отдельный эффект для обновления backgroundAlpha
     useEffect(() => {
-        console.log('🔄 darkMode changed to:', theme);
-        console.log('🔄 vantaEffect exists:', !!vantaEffect);
-        console.log('🔄 setOptions exists:', vantaEffect && typeof vantaEffect.setOptions === "function");
         if (vantaEffect && typeof vantaEffect.setOptions === "function") {
             vantaEffect.setOptions({
                 backgroundAlpha: theme === 'dark' ? 1 : 0
