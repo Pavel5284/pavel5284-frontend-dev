@@ -78,7 +78,7 @@ export const ContactsForm = () => {
                            value={formik.values.name}
                     />
                     {formik.touched.name && formik.errors.name ? (
-                        <div>{formik.errors.name}</div>
+                        <div className={style.error}>{formik.errors.name}</div>
                     ) : null}
                 </div>
 
@@ -92,7 +92,7 @@ export const ContactsForm = () => {
                            value={formik.values.email}
                     />
                     {formik.touched.email && formik.errors.email ? (
-                        <div>{formik.errors.email}</div>
+                        <div className={style.error}>{formik.errors.email}</div>
                     ) : null}
                 </div>
             </div>
@@ -116,7 +116,7 @@ export const ContactsForm = () => {
                       value={formik.values.message}
             />
                 {formik.touched.message && formik.errors.message ? (
-                    <div style={{marginBottom: "20px"}}>{formik.errors.message}</div>
+                    <div style={{marginBottom: "20px"}}  className={style.error}>{formik.errors.message}</div>
                 ) : null}
             </div>
             <ReCAPTCHA
