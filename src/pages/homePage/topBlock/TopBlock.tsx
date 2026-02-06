@@ -21,7 +21,9 @@ export const TopBlock = () => {
                         <p>{t('mainPage.cta')}</p>
                     </div>
                     <a className={style.btn}
-                       href={cv} download>{t('mainPage.downloadResume')}</a>
+                       href={cv} download="Cherniakov_Pavel_Frontend_dev.pdf">
+                        {t('mainPage.downloadResume')}
+                    </a>
                 </div>
             </section>
         </VantaBackground>
