@@ -1,18 +1,23 @@
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 import style from "./ContactsPage.module.css";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {AxiosError} from "axios";
 import {formAPI} from "@/api/api.ts";
 import CustomizedSnackbar from "@/common/components/CustomizedSnackbar/CustomizedSnackbar.tsx";
 import {MainButton} from "@/common/components/mainButton/MainButton.tsx";
 import {useTranslation} from "react-i18next";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 export const ContactsForm = () => {
     const {t} = useTranslation();
     const [status, setStatus] = useState(false)
     const [isSend, setIsSend] = useState(false)
     const [networkError, setNetworkError] = useState<null | string>(null)
+    const [captchaVerified, setCaptchaVerified] = useState(false);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
+
     // Pass the useFormik() hook initial form values and a submit function that will
     // be called when the form is submitted
     const formik = useFormik({
@@ -114,8 +119,14 @@ export const ContactsForm = () => {
                     <div style={{marginBottom: "20px"}}>{formik.errors.message}</div>
                 ) : null}
             </div>
-
-            <MainButton disabled={status} onClick={formik.handleSubmit}>
+            <ReCAPTCHA
+                style={{marginBottom: "20px"}}
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={() => setCaptchaVerified(true)}
+                onExpired={() => setCaptchaVerified(false)}
+            />
+            <MainButton disabled={status || !captchaVerified} onClick={formik.handleSubmit}>
                 {t('contacts.form.submit')}
             </MainButton>
             {/*<button
