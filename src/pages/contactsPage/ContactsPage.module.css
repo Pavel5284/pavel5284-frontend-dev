@@ -73,7 +73,7 @@
     border: 1px solid var(--accent);
     border-radius: 30px;
     padding: 24px;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
 }
 .btn {
     display: inline-block;
