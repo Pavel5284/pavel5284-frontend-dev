@@ -15,7 +15,33 @@ export const HomePage = () => {
                     <ul className={style.content_list}>
                         <li className={style.content_list__item}>
                             <h2 className={mainStyle.title_2}>{t('mainPage.frontendLabel')}</h2>
-                            <p>JavaScript, TypeScript, ReactJS, Redux, HTML, CSS, MaterialUI, Storybook, TDD, Formik</p>
+                            <p>React.js,
+                                Next.js,
+                                JavaScript,
+                                TypeScript,
+                                Redux,
+                                Redux Toolkit,
+                                RTK-Query,
+                                REST API,
+                                HTML,
+                                CSS,
+                                Sass,
+                                Storybook,
+                                TDD,
+                                MUI,
+                                AntDesign,
+                                RRD,
+                                Rechart.js,
+                                Chart.js,
+                                Axios,
+                                WebSocket,
+                                Strapi,
+                                Jira,
+                                Vercel,
+                                GitHub,
+                                i18n,
+                                Formik,
+                                React-hook form</p>
                         </li>
                     </ul>
 
