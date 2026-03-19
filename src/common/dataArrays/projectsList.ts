@@ -8,6 +8,7 @@ import project03 from '@/assets/img/projects/03.jpg'
 import project03Big from '@/assets/img/projects/03-big.jpg'
 
 import project04 from '@/assets/img/projects/04.webp'
+import project05 from '@/assets/img/projects/05.webp'
 
 
 /*
@@ -86,5 +87,13 @@ export const projectsList = [
         img: project04,
         imgBig: project04,
         gitHubPagesLink: 'https://kilkamarketing.ru',
+    },
+    {
+        id: 5,
+        titleKey: 'projects.sibtelPro.title',
+        skills: "Next.js, TS, Three.js, Bitrix integration",
+        img: project05,
+        imgBig: project05,
+        gitHubPagesLink: 'https://sibtel.pro',
     },
 ]
