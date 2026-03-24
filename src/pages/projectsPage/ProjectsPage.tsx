@@ -14,7 +14,6 @@ export const ProjectsPage = () => {
                 <h3 className={mainStyle.title_3}>{t('projects.h3')}</h3>
                 <ul className={style.projects}>
                     {projectsList.map((project) => {
-                        console.log(project, "project");
                         return <Project
                             key={project.id}
                             id={project.id}

@@ -83,7 +83,7 @@ export const projectsList = [
     {
         id: 4,
         titleKey: 'projects.marketingAgency.title',
-        skills: 'Next.js, RTK-query, TS, React-Hook form, MUI, Vanta.js, ZOD, Nodemailer',
+        skills: 'Next.js, RTK-query, TS, React-Hook form, MUI, Vanta.js, ZOD, Framer Motion, Nodemailer, Telegram integration',
         img: project04,
         imgBig: project04,
         gitHubPagesLink: 'https://kilkamarketing.ru',
