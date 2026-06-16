@@ -38,6 +38,10 @@
     "sibtelPro": {
       "title": "Sibtel.pro site",
       "skills": "Next.js, TS, Three.js, Bitrix integration"
+    },
+    "justcall": {
+      "title": "JustCall site",
+      "skills": "Next.js, TS, SCSS, Strapi, Amo-CRM integration, Yandex smart-captcha, React-Hook form, ZOD, GSAP, Keen-slider"
     }
   },
   "contacts": {

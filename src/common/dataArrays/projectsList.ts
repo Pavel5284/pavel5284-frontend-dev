@@ -9,6 +9,7 @@ import project03Big from '@/assets/img/projects/03-big.jpg'
 
 import project04 from '@/assets/img/projects/04.webp'
 import project05 from '@/assets/img/projects/05.webp'
+import project06 from '@/assets/img/projects/06.webp'
 
 
 /*
@@ -95,5 +96,13 @@ export const projectsList = [
         img: project05,
         imgBig: project05,
         gitHubPagesLink: 'https://sibtel.pro',
+    },
+    {
+        id: 6,
+        titleKey: 'projects.justcall.title',
+        skills: "Next.js, TS, SCSS, Strapi, Amo-CRM integration, Yandex smart-captcha, React-Hook form, ZOD, GSAP, Keen-slider",
+        img: project06,
+        imgBig: project06,
+        gitHubPagesLink: 'https://justgroup.pro',
     },
 ]
