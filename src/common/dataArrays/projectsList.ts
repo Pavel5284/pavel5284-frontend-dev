@@ -7,7 +7,7 @@ import project02Big from '@/assets/img/projects/02-big.jpg'
 import project03 from '@/assets/img/projects/03.jpg'
 import project03Big from '@/assets/img/projects/03-big.jpg'
 
-import project04 from '@/assets/img/projects/04.webp'
+//import project04 from '@/assets/img/projects/04.webp'
 import project05 from '@/assets/img/projects/05.webp'
 import project06 from '@/assets/img/projects/06.webp'
 
@@ -81,14 +81,14 @@ export const projectsList = [
         gitHubPagesLink: 'https://pavel5284.github.io/samurai-way/',
         gitHubRepoLink: 'https://github.com/Pavel5284/samurai-way',
     },
-    {
+  /*  {
         id: 4,
         titleKey: 'projects.marketingAgency.title',
         skills: 'Next.js, RTK-query, TS, React-Hook form, MUI, Vanta.js, ZOD, Framer Motion, Nodemailer, Telegram integration',
         img: project04,
         imgBig: project04,
         gitHubPagesLink: 'https://kilkamarketing.ru',
-    },
+    },*/
     {
         id: 5,
         titleKey: 'projects.sibtelPro.title',
