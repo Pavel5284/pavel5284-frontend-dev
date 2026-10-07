@@ -40,13 +40,20 @@ export const HomePage = () => {
                                 Framer Motion,
                                 Axios,
                                 WebSocket,
-                                Strapi,
                                 Jira,
                                 Vercel,
                                 GitHub,
                                 i18n,
                                 Formik,
                                 React-hook form</p>
+                        </li>
+                        <li className={style.content_list__item}>
+                            <h2 className={mainStyle.title_2}>{t('mainPage.backendLabel')}</h2>
+                            <p>Node.js,
+                                NestJS,
+                                REST API,
+                                SQL,
+                                Strapi (headless CMS)</p>
                         </li>
                     </ul>
 

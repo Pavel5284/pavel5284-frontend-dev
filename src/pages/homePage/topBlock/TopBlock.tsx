@@ -1,5 +1,5 @@
 import style from './TopBlock.module.css'
-import cv from '../../../../public/cv/Cherniakov_Pavel_Frontend_dev.pdf'
+import cv from '../../../../public/cv/Chernyakov_Pavel_CV.pdf'
 import {VantaBackground} from "./bg/bg";
 import {useTranslation} from "react-i18next";
 
@@ -17,11 +17,11 @@ export const TopBlock = () => {
                     <div className={style.text}>
                         <p>{t('mainPage.details')}</p>
                         <p>{t('mainPage.stack')}</p>
-                        <p>React • TypeScript • Next.js • Vue.js • Nuxt.js</p>
+                        <p>React • Next.js • TypeScript • Node.js • NestJS • SQL</p>
                         <p>{t('mainPage.cta')}</p>
                     </div>
                     <a className={style.btn}
-                       href={cv} download="Cherniakov_Pavel_Frontend_dev.pdf">
+                       href={cv} download="Chernyakov_Pavel_CV.pdf">
                         {t('mainPage.downloadResume')}
                     </a>
                 </div>
