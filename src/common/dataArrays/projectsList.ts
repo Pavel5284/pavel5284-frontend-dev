@@ -11,6 +11,12 @@ import project03Big from '@/assets/img/projects/03-big.jpg'
 import project05 from '@/assets/img/projects/05.webp'
 import project06 from '@/assets/img/projects/06.webp'
 
+import project07_1 from '@/assets/img/projects/07-1.png'
+import project07_2 from '@/assets/img/projects/07-2.png'
+import project07_3 from '@/assets/img/projects/07-3.png'
+import project07_4 from '@/assets/img/projects/07-4.png'
+
+
 
 /*
 
@@ -54,40 +60,45 @@ export const projectsList = [
 ]*/
 
 export type ProjectListItem = {
+    id: number
     slug: string
     titleKey: string
     skills: string
     img: string
-    imgBig: string
-    gitHubPagesLink: string
+    imgBig: string[]
+    descriptionKey?: string
+    gitHubPagesLink?: string
     gitHubRepoLink?: string
 }
 
 export const projectsList: ProjectListItem[] = [
     {
+        id: 1,
         slug: 'quiz-show',
         titleKey: 'projects.quizShow.title', // Ключ для перевода
         skills: 'React, TS, Redux, Formik, Axios, MaterialUI, SCSS',
         img: project01,
-        imgBig: project01Big,
+        imgBig: [project01Big],
         gitHubPagesLink: 'https://bdodinka.github.io/quiz-show',
         gitHubRepoLink: 'https://github.com/BDODINKA/quiz-show',
     },
     {
+        id: 2,
         slug: 'task-manager',
         titleKey: 'projects.taskManager.title',
         skills: 'React, Redux, TS, Formik, Axios, Storybook, TDD, RTK, MUI',
         img: project02,
-        imgBig: project02Big,
+        imgBig: [project02Big],
         gitHubPagesLink: 'https://pavel5284.github.io/Todolist',
         gitHubRepoLink: 'https://github.com/Pavel5284/Todolist',
     },
     {
+        id: 3,
         slug: 'social-network',
         titleKey: 'projects.socialNetwork.title',
         skills: 'React, Redux, TS, Formik, Axios, WebSocket, Ant Design',
         img: project03,
-        imgBig: project03Big,
+        imgBig: [project03Big],
         gitHubPagesLink: 'https://pavel5284.github.io/samurai-way/',
         gitHubRepoLink: 'https://github.com/Pavel5284/samurai-way',
     },
@@ -100,20 +111,32 @@ export const projectsList: ProjectListItem[] = [
         gitHubPagesLink: 'https://kilkamarketing.ru',
     },*/
     {
+        id: 5,
         slug: 'sibtel-pro',
         titleKey: 'projects.sibtelPro.title',
         skills: "Next.js, TS, Three.js, Bitrix integration",
         img: project05,
-        imgBig: project05,
+        imgBig: [project05],
         gitHubPagesLink: 'https://sibtel.pro',
     },
     {
+        id: 6,
         slug: 'justcall',
         titleKey: 'projects.justcall.title',
         skills: "Next.js, TS, SCSS, Strapi, Amo-CRM integration, Yandex smart-captcha, React-Hook form, ZOD, GSAP, Keen-slider",
         img: project06,
-        imgBig: project06,
+        imgBig: [project06],
         gitHubPagesLink: 'https://justgroup.pro',
+    },
+    {
+        id: 7,
+        slug: 'crm-system',
+        titleKey: 'projects.crmSystem.title',
+        skills: 'Nuxt, NestJS, TS, JWT, WebSocket, Microservices',
+        img: project07_1,
+        imgBig: [project07_1, project07_2, project07_3, project07_4],
+        descriptionKey: 'projects.crmSystem.description',
+        gitHubPagesLink: 'https://crm-system-vue-customers-remote-ten.vercel.app/',
     },
 ]
 
@@ -123,7 +146,15 @@ export const projectsList: ProjectListItem[] = [
 // с сообщением, указывающим на конфликтующие записи.
 // (Плюс scripts/validate-project-slugs.mjs роняет `npm run build`.)
 const seenSlugs = new Map<string, number>()
+const seenIds = new Map<number, number>()
 projectsList.forEach((project, index) => {
+    const firstIdIndex = seenIds.get(project.id)
+    if (firstIdIndex !== undefined) {
+        throw new Error(
+            `[projectsList] Дублирующийся id ${project.id}: индекс ${index} (slug "${project.slug}") конфликтует с индексом ${firstIdIndex}. Id должны быть уникальными. Файл: src/common/dataArrays/projectsList.ts`
+        )
+    }
+    seenIds.set(project.id, index)
     if (!project.slug) {
         throw new Error(
             `[projectsList] У проекта с индексом ${index} (titleKey: "${project.titleKey}") пустой slug. Каждый проект должен иметь уникальный URL-friendly "slug". Файл: src/common/dataArrays/projectsList.ts`

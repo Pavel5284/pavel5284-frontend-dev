@@ -6,7 +6,6 @@ type PropsType = {
   titleKey: string
   skills: string
   img: string
-  imgBig: string
   gitHubLink: string | undefined
 }
 

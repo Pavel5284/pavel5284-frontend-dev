@@ -43,6 +43,11 @@
     "justcall": {
       "title": "Сайт компании JustCall",
       "skills": "Next.js, TS, SCSS, Strapi, Amo-CRM integration, Yandex smart-captcha, React-Hook form, ZOD, GSAP, Keen-slider"
+    },
+    "crmSystem": {
+      "title": "CRM-система (прототип)",
+      "skills": "Nuxt, NestJS, TS, JWT, WebSocket, Kanban",
+      "description": "Демо может стартовать до 1 минуты из-за ограничений хостинга, на котором оно крутится. Так первый запрос к уведомлениям задачам и клиентам может быть около минуты т.к. это сделано на микросервисах.\n\nТестовые доступы:\ndemo1@example.com / Demo12345\ndemo2@example.com / Demo12345\ndemo3@example.com / Demo12345"
     }
   },
   "contacts": {

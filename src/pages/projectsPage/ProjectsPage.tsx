@@ -15,12 +15,11 @@ export const ProjectsPage = () => {
                 <ul className={style.projects}>
                     {projectsList.map((project) => {
                         return <Project
-                            key={project.slug}
+                            key={project.id}
                             slug={project.slug}
                             titleKey={t(project.titleKey)}
                             skills={project.skills}
                             img={project.img}
-                            imgBig={project.imgBig}
                             gitHubLink={project.gitHubRepoLink}/>
                     })}
                 </ul>
