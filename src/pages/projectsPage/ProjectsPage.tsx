@@ -15,8 +15,8 @@ export const ProjectsPage = () => {
                 <ul className={style.projects}>
                     {projectsList.map((project) => {
                         return <Project
-                            key={project.id}
-                            id={project.id}
+                            key={project.slug}
+                            slug={project.slug}
                             titleKey={t(project.titleKey)}
                             skills={project.skills}
                             img={project.img}

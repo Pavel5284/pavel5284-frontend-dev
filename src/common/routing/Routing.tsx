@@ -8,7 +8,7 @@ import {HomePage} from "@/pages/homePage/HomePage.tsx";
 export const Path = {
     Main: "/",
     Projects: "/projectsPage",
-    ProjectPageId: "/projectPage/:id",
+    ProjectPageSlug: "/projectPage/:slug",
     Contacts: "/contactsPage",
     NotFound: "*",
 } as const
@@ -18,7 +18,7 @@ export const Routing = () => {
         <Routes>
             <Route path={Path.Main} element={<HomePage/>}/>
             <Route path={Path.Projects} element={<ProjectsPage/>}/>
-            <Route path={Path.ProjectPageId} element={<ProjectPage/>}/>
+            <Route path={Path.ProjectPageSlug} element={<ProjectPage/>}/>
             <Route path={Path.Contacts} element={<ContactsPage/>}/>
 
             <Route path={Path.NotFound} element={<PageNotFound/>}/>

@@ -1,13 +1,22 @@
-import Button from "@mui/material/Button/Button"
-import styles from "./PageNotFound.module.css"
-import { Link } from "react-router"
+import {useNavigate} from "react-router"
+import mainStyle from "@/styles/mainStyles.module.css"
+import style from "./PageNotFound.module.css"
+import {MainButton} from "@/common/components/mainButton/MainButton.tsx"
 
-export const PageNotFound = () => (
-  <>
-    <h1 className={styles.title}>404</h1>
-    <h2 className={styles.subtitle}>page not found</h2>
-    <Button component={Link} to="/">
-      Go to Main Page
-    </Button>
-  </>
-)
+export const PageNotFound = () => {
+    const navigate = useNavigate()
+
+    return (
+        <main className={mainStyle.section}>
+            <div className={mainStyle.container}>
+                <div className={style.wrapper}>
+                    <h1 className={style.title}>404</h1>
+                    <h2 className={style.subtitle}>page not found</h2>
+                    <MainButton onClick={() => navigate("/")}>
+                        Go to Main Page
+                    </MainButton>
+                </div>
+            </div>
+        </main>
+    )
+}

@@ -1,0 +1,5 @@
+# Разрешённые lifecycle-скрипты зависимостей (pnpm требует явного approve).
+# esbuild и @swc/core нужны для работы Vite (дев-сервер и сборка).
+allowBuilds:
+  esbuild: true
+  '@swc/core': true

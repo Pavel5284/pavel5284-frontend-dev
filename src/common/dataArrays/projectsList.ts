@@ -53,9 +53,19 @@ export const projectsList = [
     },
 ]*/
 
-export const projectsList = [
+export type ProjectListItem = {
+    slug: string
+    titleKey: string
+    skills: string
+    img: string
+    imgBig: string
+    gitHubPagesLink: string
+    gitHubRepoLink?: string
+}
+
+export const projectsList: ProjectListItem[] = [
     {
-        id: 1,
+        slug: 'quiz-show',
         titleKey: 'projects.quizShow.title', // Ключ для перевода
         skills: 'React, TS, Redux, Formik, Axios, MaterialUI, SCSS',
         img: project01,
@@ -64,7 +74,7 @@ export const projectsList = [
         gitHubRepoLink: 'https://github.com/BDODINKA/quiz-show',
     },
     {
-        id: 2,
+        slug: 'task-manager',
         titleKey: 'projects.taskManager.title',
         skills: 'React, Redux, TS, Formik, Axios, Storybook, TDD, RTK, MUI',
         img: project02,
@@ -73,7 +83,7 @@ export const projectsList = [
         gitHubRepoLink: 'https://github.com/Pavel5284/Todolist',
     },
     {
-        id: 3,
+        slug: 'social-network',
         titleKey: 'projects.socialNetwork.title',
         skills: 'React, Redux, TS, Formik, Axios, WebSocket, Ant Design',
         img: project03,
@@ -90,7 +100,7 @@ export const projectsList = [
         gitHubPagesLink: 'https://kilkamarketing.ru',
     },*/
     {
-        id: 5,
+        slug: 'sibtel-pro',
         titleKey: 'projects.sibtelPro.title',
         skills: "Next.js, TS, Three.js, Bitrix integration",
         img: project05,
@@ -98,7 +108,7 @@ export const projectsList = [
         gitHubPagesLink: 'https://sibtel.pro',
     },
     {
-        id: 6,
+        slug: 'justcall',
         titleKey: 'projects.justcall.title',
         skills: "Next.js, TS, SCSS, Strapi, Amo-CRM integration, Yandex smart-captcha, React-Hook form, ZOD, GSAP, Keen-slider",
         img: project06,
@@ -106,3 +116,30 @@ export const projectsList = [
         gitHubPagesLink: 'https://justgroup.pro',
     },
 ]
+
+// Slugs используются в URL страницы проекта (/projectPage/:slug),
+// поэтому дубликаты сделали бы часть проектов недоступной.
+// Проверка при импорте модуля: роняет dev-сервер/тесты сразу
+// с сообщением, указывающим на конфликтующие записи.
+// (Плюс scripts/validate-project-slugs.mjs роняет `npm run build`.)
+const seenSlugs = new Map<string, number>()
+projectsList.forEach((project, index) => {
+    if (!project.slug) {
+        throw new Error(
+            `[projectsList] У проекта с индексом ${index} (titleKey: "${project.titleKey}") пустой slug. Каждый проект должен иметь уникальный URL-friendly "slug". Файл: src/common/dataArrays/projectsList.ts`
+        )
+    }
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(project.slug)) {
+        throw new Error(
+            `[projectsList] Некорректный slug "${project.slug}" у проекта с индексом ${index} (titleKey: "${project.titleKey}"). Разрешены только строчные латинские буквы, цифры и дефисы (например, "my-project"). Файл: src/common/dataArrays/projectsList.ts`
+        )
+    }
+    const firstIndex = seenSlugs.get(project.slug)
+    if (firstIndex !== undefined) {
+        const first = projectsList[firstIndex]
+        throw new Error(
+            `[projectsList] Дублирующийся slug "${project.slug}": индекс ${index} (titleKey: "${project.titleKey}") конфликтует с индексом ${firstIndex} (titleKey: "${first.titleKey}"). Slug должны быть уникальными. Файл: src/common/dataArrays/projectsList.ts`
+        )
+    }
+    seenSlugs.set(project.slug, index)
+})
