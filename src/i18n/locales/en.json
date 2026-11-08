@@ -48,6 +48,11 @@
       "title": "CRM system (prototype)",
       "skills": "Nuxt, NestJS, TS, JWT, WebSocket, Kanban",
       "description": "The demo may take up to 1 minute to start due to the hosting limits it runs on. The first request for notifications, tasks and clients may also take about a minute, since they are built as microservices.\n\nDemo accounts:\ndemo1@example.com / Demo12345\ndemo2@example.com / Demo12345\ndemo3@example.com / Demo12345"
+    },
+    "borodaBarberBot": {
+      "title": "Boroda Barber Bot",
+      "skills": "Node.js, TS, Grammy, PostgreSQL, YAML, Zod, Vitest",
+      "description": "Telegram bot for the “Boroda” barbershop: books appointments with a chosen or any available master, reschedules and cancels bookings, answers questions from the knowledge base, and hands complex cases over to an operator.\n\nHow it works: the dialog is a state machine with slots (service, master, date, time, phone, name). It asks only for missing data and accepts slots from any reply. Text is parsed first by rules (Russian dates, times, phones, number words, ASR mistakes); LLM is used only as a fallback to extract a strict JSON, and every value is verified against the database and the client's message. A booking is created by code only after an explicit “yes”.\n\nThe database is the source of truth; CRM requests go out after the booking and are retried through an outbox if CRM is down. Knowledge-base answers use RAG with a distance threshold and source checks; if there is no answer, booking stops and the bot asks for a contact and creates an operator task. An optional style layer may add one short intro phrase to a ready answer; it is validated and rolled back on any doubt, and can be disabled with LLM_HUMANIZE=0.\n\nResult on dev: 100/100 scenarios, 0 false bookings, 9% handoff, LLM used in 8% of replies, p95 under 3 s."
     }
   },
   "contacts": {

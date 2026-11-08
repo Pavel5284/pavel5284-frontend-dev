@@ -16,6 +16,8 @@ import project07_2 from '@/assets/img/projects/07-2.png'
 import project07_3 from '@/assets/img/projects/07-3.png'
 import project07_4 from '@/assets/img/projects/07-4.png'
 
+import project08_1 from '@/assets/img/projects/08-1.png'
+import project08_2 from '@/assets/img/projects/08-2.png'
 
 
 /*
@@ -137,6 +139,16 @@ export const projectsList: ProjectListItem[] = [
         imgBig: [project07_1, project07_2, project07_3, project07_4],
         descriptionKey: 'projects.crmSystem.description',
         gitHubPagesLink: 'https://crm-system-vue-customers-remote-ten.vercel.app/',
+    },
+    {
+        id: 8,
+        slug: 'boroda-barber-bot',
+        titleKey: 'projects.borodaBarberBot.title',
+        skills: 'Node.js, TS, Grammy, PostgreSQL, YAML, Zod, Vitest',
+        img: project08_1,
+        imgBig: [project08_1, project08_2],
+        descriptionKey: 'projects.borodaBarberBot.description',
+        gitHubPagesLink: 'https://t.me/boroda_barber_demo_bot',
     },
 ]
 
