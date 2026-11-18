@@ -26,6 +26,7 @@ export const HomePage = () => {
                                 RTK-Query,
                                 Pinia,
                                 REST API,
+                                GraphQL,
                                 HTML,
                                 CSS,
                                 Sass,
@@ -52,8 +53,14 @@ export const HomePage = () => {
                             <p>Node.js,
                                 NestJS,
                                 REST API,
+                                GraphQL,
                                 SQL,
-                                Strapi (headless CMS)</p>
+                                PostgreSQL,
+                                Strapi (headless CMS),
+                                Zod,
+                                Vitest,
+                                Grammy (Telegram Bot API),
+                                LLM / RAG</p>
                         </li>
                     </ul>
 

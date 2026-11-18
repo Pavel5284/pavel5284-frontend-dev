@@ -12,6 +12,8 @@
     "stack": "Tech stack: ",
     "cta": "Ready to bring your idea to life",
     "downloadResume": "Download CV",
+    "downloadResumeRu": "Download RU CV",
+    "downloadResumeEn": "Download EN CV",
     "skillsTitle": "Skills",
     "frontendLabel": "Frontend",
     "backendLabel": "Backend"
